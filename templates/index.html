@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Asistente de Ajedrez</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+  <button id="toggleModeBtn" class="toggle-mode" onclick="toggleMode()">Light Mode</button>
+  <h1>Asistente de Ajedrez</h1>
+  <div class="section" id="colorSelection">
+    <h2>Selecciona tu color</h2>
+    <button onclick="setColor('white')">Blancas</button>
+    <button onclick="setColor('black')">Negras</button>
+  </div>
+  <div class="section" id="gameSection" style="display:none;">
+    <h2>Partida en curso</h2>
+    <div>
+      <label>Estado del tablero:</label>
+      <pre id="boardDisplay"></pre>
+    </div>
+    <div style="margin-top: 10px;">
+      <input type="text" id="moveInput" placeholder="Ingresa tu movimiento (SAN)">
+    </div>
+    <div style="margin-top: 10px;">
+      <button onclick="sendMove()">Enviar movimiento</button>
+      <button onclick="suggestMove()">Sugerir movimiento</button>
+    </div>
+    <div class="section">
+      <h3>Cargar partida desde PGN</h3>
+      <textarea id="pgnInput" rows="4" placeholder="Pega aquí los movimientos totales"></textarea>
+      <br>
+      <button onclick="loadPGN()">Cargar partida</button>
+    </div>
+    <div id="message"></div>
+  </div>
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
